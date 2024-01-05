@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Frontend Mentor - Results summary component solution
 
 This is a solution to the [Results summary component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/results-summary-component-CE_K6s0maV).
@@ -32,4 +33,8 @@ Users should be able to:
 # Fix_My_Code_Challenge
 # Fix_My_Code_Challenge
 # binary_trees
+# binary_trees
+=======
+Fix_My_Code_Challenge
+>>>>>>> b3145d6408e186938d784160e20dfec578b73fb2
 # binary_trees
