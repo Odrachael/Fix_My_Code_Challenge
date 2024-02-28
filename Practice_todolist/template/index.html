@@ -1,0 +1,85 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #task-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #task-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #add-task-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #add-task-form input[type="text"] {
+            flex: 1;
+            padding: 8px;
+        }
+
+        #add-task-form button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #add-task-form button:hover {
+            background-color: #45a049;
+        }
+
+        @media screen and (max-width: 600px) {
+            #add-task-form {
+                flex-direction: column;
+            }
+
+            #add-task-form input[type="text"] {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    
+    <ul id="task-list">
+        {% for task in tasks %}
+            <li>{{ task }}</li>
+        {% endfor %}
+    </ul>
+
+    <form id="add-task-form">
+        <label for="task">Add Task:</label>
+        <input type="text" id="task" name="task" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+    <script>
+        // No JavaScript needed for responsiveness in this template
+    </script>
+</body>
+</html>
