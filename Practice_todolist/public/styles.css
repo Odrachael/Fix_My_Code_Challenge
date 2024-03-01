@@ -4,7 +4,7 @@ body {
   }
   
   h1 {
-    color: rgb(19, 19, 18);
+    color: rgb(6, 6, 6);
     text-align: center;
     padding-right: 100px;
   }
@@ -57,4 +57,34 @@ body {
     padding-left: 
     cursor: pointer;
   }
-  
+  .hero h2{
+    color: #e70d0d;
+
+  }
+  .btn{
+    margin-left: ;
+  }
+  footer p{
+    margin-top: 100px;
+  }
+  main p1{
+    color: yellow;
+    background-color: grey; border-radius:10px ;
+    padding: 5px;
+  }
+  main p{
+    color: blue;
+    background-color: grey; border-radius:10px ;
+    padding: 5px;
+  }
+  .landing-page-container {
+    background-image: url('https://media.istockphoto.com/id/863607936/photo/to-do-list-on-note-pad-with-coffee-and-pen-on-office-desk.jpg?s=1024x1024&w=is&k=20&c=1sjUUg92Doc8WRmV4mT4D-7H4W27Tb_t1MvqEAd0lv4=');
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+    height: 100vh; /* Set the height of the container to 100% of the viewport height */
+    display: flex; /* Use flexbox for centering content vertically */
+    flex-direction: column; /* Stack the content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}

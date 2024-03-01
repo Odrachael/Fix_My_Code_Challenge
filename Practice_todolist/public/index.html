@@ -1,20 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To-Do List</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-  <h1>To-Do List</h1>
-  
-  <div id="app">
-    <input type="text" id="taskInput" placeholder="Enter a task">
-    <button onclick="addTask()">Add Task</button>
-    <ul id="taskList"></ul>
-  </div>
+    <label for="language-select">Choose your preferred language:</label>
+    <select id="language-select">
+      <option value="en">English</option>
+      <option value="fr">French</option>
+      <option value="es">Spanish</option>
+      <option value="de">German</option>
+      <option value="it">Italian</option>
+      <!-- Add more language options as needed -->
+    </select>
+    <header>
+        <!-- Navigation bar or header content -->
+        <h1>Todo List</h1>
+        <nav>
+            <ul>
+                <li><a href="landing.html">Home</a></li> <!-- Link to landing page -->
+            </ul>
+        </nav>
+    </header>
 
-  <script src="script.js"></script>
+    <main>
+        <form id="task-form">
+            <input type="text" id="task-input" placeholder="Enter a new task...">
+            <button type="submit">Add Task</button>
+        </form>
+
+        <ul id="task-list">
+            <!-- Task items will be dynamically added here -->
+        </ul>
+    </main>
+
+    <footer>
+        <!-- Footer content -->
+        <p>&copy; 2024 Todo List. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+    <script>
+        // Your JavaScript code goes here
+        document.getElementById('language-select').addEventListener('change', function() {
+            var language = this.value;
+            var placeholderText = getPlaceholderText(language);
+            document.getElementById('task-input').placeholder = placeholderText;
+        });
+
+        function getPlaceholderText(language) {
+            switch (language) {
+                case 'en':
+                    return 'Enter a new task...';
+                case 'fr':
+                    return 'Entrez une nouvelle tâche...';
+                case 'es':
+                    return 'Ingrese una nueva tarea...';
+                case 'de':
+                    return 'Geben Sie eine neue Aufgabe ein...';
+                case 'it':
+                    return 'Inserisci un nuovo compito...';
+                // Add more cases for additional languages
+                default:
+                    return 'Enter a new task...';
+            }
+        }
+    </script>
+
+    <script>
+        // Function to navigate back to the landing page
+        function goToHomePage() {
+            window.location.href = "landing.html";
+        }
+    </script>
 </body>
 </html>

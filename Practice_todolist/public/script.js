@@ -1,9 +1,9 @@
-// script.js
-
 // Function to add a new task
-function addTask() {
-    const taskInput = document.getElementById('taskInput');
-    const taskList = document.getElementById('taskList');
+function addTask(event) {
+    event.preventDefault(); // Prevent form submission from refreshing the page
+    
+    const taskInput = document.getElementById('task-input');
+    const taskList = document.getElementById('task-list');
     const taskText = taskInput.value.trim();
     
     if (taskText) {
@@ -29,4 +29,8 @@ function addTask() {
       alert('Please enter a task!');
     }
   }
+  
+  // Bind the addTask() function to the form submission event
+  const taskForm = document.getElementById('task-form');
+  taskForm.addEventListener('submit', addTask);
   
