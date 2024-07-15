@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moore's Recipe Finder</title>
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="login.html">Login</a>
+        <a href="about.html">About</a>
+        <a href="signup.html">signup</a>
+        <a href="feedback.html">Clients Feedback</a>
+        <a href="landing.html">Home</a>
+</div>
+
+<span class="menu-button" onclick="openNav()">&#9776;</span>
+
+<section class="hero">
+    <div class="logo-container">
+        <img src="image.jpg/logo1.png" alt="Moore's Recipe Finder Logo" class="logo">
+    </div>
+    <h2>Welcome To Moore's Recipe Collection</h2>
+    <p>Discover the authentic taste of Nigeria with our diverse collection of recipes.</p>
+    <p>Sign up now to start exploring and sharing recipes. Discover new dishes, share your culinary creations, and connect with fellow food enthusiasts.</p>
+    <a href="signup.html" class="cta-button">Sign Up Now</a>
+</section>
+
+<footer>
+    <div class="features card">
+        <h2>Features</h2>
+        <div class="feature-list">
+            <ul>
+                <li>Extensive collection of authentic Nigerian recipes</li>
+                <li>Easy-to-follow instructions and ingredients list</li>
+                <li>User reviews and ratings for each recipe</li>
+                <li>Save your favorite recipes for quick access</li>
+                <li>Share your own recipes with the community</li>
+            </ul>
+        </div>
+    </div>
+    <div class="datetime">
+        <p id="calendar"></p>
+        <p id="timer"></p>
+    </div>
+   
+</footer>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+function updateTime() {
+    const now = new Date();
+    const calendar = now.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    const timer = now.toLocaleTimeString();
+    document.getElementById('calendar').innerHTML = calendar;
+    document.getElementById('timer').innerHTML = timer;
+}
+
+// Update time every second
+setInterval(updateTime, 1000);
+
+// Initial call to display time immediately on page load
+updateTime();
+</script>
+<div class="footer">
+    <a href="https://www.linkedin.com/in/rachael-o-692a5b278?trk=contact-info" target="_blank"><img src="image.jpg/linkdin pic.webp" alt="LinkedIn"></a>
+    <a href="https://github.com/Odrachael" target="_blank"><img src="image.jpg/gitgit.png" alt="GitHub" style="height: 50px;"></a>
+    <a href="https://twitter.com/Rachmoore07" target="_blank"><img src="image.jpg/twit.png" alt="Twitter" style="height: 50px;"></a>
+</div>
+</body>
+</html>

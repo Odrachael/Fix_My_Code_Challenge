@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            position: relative;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('image.jpg/image 3.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.6; /* Adjust the opacity as needed */
+            z-index: -1; /* Make sure the background is behind the content */
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .menu-button {
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            z-index: 3; /* Ensure the menu button is above other content */
+        }
+
+        .signup-container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Added for positioning the icon */
+            background: rgba(50, 96, 43, 0.8); /* Slightly opaque background for the container */
+            z-index: 1; /* Ensure the signup container is above the background */
+        }
+
+        .signup-container h2 {
+            text-align: center;
+        }
+
+        .signup-container input[type="text"],
+        .signup-container input[type="password"] {
+            width: calc(100% - 40px); /* Adjust width to accommodate icon */
+            margin: 10px 0;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .password-toggle-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #0e0e0e;
+        }
+
+        .signup-container input[type="submit"] {
+            width: 85%;
+            background-color: #F96F5D;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .signup-container input[type="submit"]:hover {
+            background-color: #110302;
+        }
+    </style>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="landing.html">Home</a>
+        <a href="javascript:void(0)" onclick="logout()">Logout</a> <!-- Add logout option -->
+    </div>
+    
+    <span class="menu-button" onclick="openNav()">&#9776;</span>
+
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <form id="signup-form" onsubmit="createAccount(event)">
+            <input type="text" id="new-username" name="new-username" placeholder="Enter username" required>
+            <div style="position: relative;">
+                <input type="password" id="new-password" name="new-password" placeholder="Enter password" required>
+                <i class="fas fa-eye-slash password-toggle-icon" onclick="togglePasswordVisibility('new-password')"></i>
+            </div>
+            <div style="position: relative;">
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
+                <i class="fas fa-eye-slash password-toggle-icon" onclick="togglePasswordVisibility('confirm-password')"></i>
+            </div>
+            <input type="submit" value="Sign Up">
+        </form>
+    </div>
+
+    <script>
+        function createAccount(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Get input values
+            var newUsername = document.getElementById('new-username').value;
+            var newPassword = document.getElementById('new-password').value;
+            var confirmPassword = document.getElementById('confirm-password').value;
+
+            // Retrieve existing user data from localStorage or initialize an empty array
+            var userData = JSON.parse(localStorage.getItem('userData')) || [];
+
+            // Check if the username already exists
+            var existingUser = userData.find(user => user.username === newUsername);
+            if (existingUser) {
+                alert('Username already exists. Please choose a different username.');
+            } else if (newPassword !== confirmPassword) {
+                alert('Passwords do not match. Please try again.');
+            } else {
+                // Add the new user to the user data array
+                userData.push({ username: newUsername, password: newPassword });
+
+                // Save the updated user data back to localStorage
+                localStorage.setItem('userData', JSON.stringify(userData));
+                alert('Successfully signed up');
+                window.location.href = 'login.html'; // Redirect to login page after successful signup
+            }
+        }
+
+        function togglePasswordVisibility(inputId) {
+            var passwordInput = document.getElementById(inputId);
+            var icon = passwordInput.nextElementSibling;
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            }
+        }
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        function logout() {
+            // Clear user session data
+            localStorage.removeItem('loggedInUser');
+            alert('You have been logged out.');
+            // Redirect to login page
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>

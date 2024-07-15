@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients Feedback</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #e67e22;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 30px black; /* Visible shadow */
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        main, h2, h1 {
+            text-align: center;
+            text-shadow: 0 0 30px #F96F5D;
+        }
+    
+        label {
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #8d3f3f;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        
+        textarea {
+            height: 150px;
+        }
+        
+        input[type="submit"] {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: brown;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .footer a img {
+            width: 50px; /* Adjust the size of the LinkedIn logo */
+            height: 50px;
+            margin: 0 10px; /* Add some spacing around the logo */
+            vertical-align: middle;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <body background="image.jpg/5660126.jpg">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="about.html">About us</a>
+        <a href="howitworks.html">How it works</a>
+        <a href="feedback.html">Clients feedback</a>
+        <a href="login.html">Login</a>
+        <a href="landing.html">Home</a>
+    </div>
+  
+    <div id="main">
+        <span style="font-size:30px;cursor:pointer;color: #f7efef;" onclick="openNav()">&#9776;</span>
+    </div>
+  
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "white";
+        }
+
+        function submitFeedback(event) {
+            event.preventDefault(); // Prevent form submission from reloading the page
+            
+            // Get form values
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('feedback').value;
+
+            // Construct email body
+            var body = "Name: " + name + "\nEmail: " + email + "\nMessage: " + message;
+
+            // Send email using a mailto link
+            var mailtoLink = "mailto:odudurachael1@gmail.com" +
+                             "?subject=Client Feedback" +
+                             "&body=" + encodeURIComponent(body);
+
+            // Open mail client with pre-filled email
+            window.location.href = mailtoLink;
+
+            // Show success message and redirect to landing page
+            alert('Feedback submitted successfully. Thank you!');
+            window.location.href = 'landing.html';
+        }
+    </script>
+
+    <header>
+        <h1><u>We Value Your Feedback</u></h1>
+    </header>
+    <main>
+        <h2>
+            At Moore's Recipe Finder, we are committed to delivering the best possible experience to our users. <br>
+            Your feedback plays a crucial role in helping us understand your needs and improve our services. <br>
+            We appreciate the time you take to share your thoughts with us. Whether it's a suggestion for improvement, <br>
+            a compliment on a recipe well presented, or a concern you'd like to address, we welcome it all. <br>
+            Your feedback enables us to continuously enhance our offerings and ensure that we meet and exceed your expectations. <br>
+            Together, we can create a better culinary experience for everyone. <br>
+            Thank you for choosing Moore's Recipe Finder. We look forward to hearing from you!
+        </h2>
+        
+        <div class="container">
+            <h2>Client Feedback Form</h2>
+            <form id="feedback-form" onsubmit="submitFeedback(event)">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="feedback">Feedback:</label>
+                    <textarea id="feedback" name="feedback" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit Feedback">
+                </div>
+            </form>
+        </div>
+    </main>
+    <div class="footer">
+        <a href="https://www.linkedin.com/in/rachael-o-692a5b278?trk=contact-info" target="_blank"><img src="image.jpg/linkdin pic.webp" alt="LinkedIn"></a>
+        <a href="https://github.com/Odrachael" target="_blank"><img src="image.jpg/gitgit.png" alt="GitHub" style="height: 50px;"></a>
+        <a href="https://twitter.com/Rachmoore07" target="_blank"><img src="image.jpg/twit.png" alt="Twitter" style="height: 50px;"></a>
+    </div>
+</body>
+</html>

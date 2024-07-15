@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moore's African Recipe Finder</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        // Redirection script
+        window.onload = function() {
+            // Check if the user has visited before
+            if (!localStorage.getItem('hasVisited')) {
+                // Redirect to landing.html if not visited before
+                window.location.href = 'landing.html';
+                // Set the flag in localStorage
+                localStorage.setItem('hasVisited', 'true');
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">signup</a>
+        <a href="feedback.html">Clients Feedback</a>
+        <a href="landing.html">Home</a>
+        <a href="javascript:void(0)" onclick="logout()">Logout</a> <!-- Add logout option -->
+    </div>
+    <header>
+        <span class="menu-button" onclick="openNav()">&#9776;</span>
+        <section class="index">
+            <div class="logo-container">
+                <img src="image.jpg/logo1.png" alt="Welcome To Moore's Recipe Collection" class="logo">
+            </div>
+        </section>
+        <h1>Welcome To Moore's Recipe Finder</h1>
+    </header>
+    <main>
+        <section class="search">
+            <input type="text" id="searchInput" placeholder="Search for a recipe...">
+            <button onclick="searchRecipes()">Search</button>
+        </section>
+        <section class="recipes" id="recipeResults"></section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Moore's Recipe Collection</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

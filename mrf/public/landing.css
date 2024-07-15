@@ -1,0 +1,190 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('image.jpg/image2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.menu-button {
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    background: none;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background: #e67e22;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #d35400;
+}
+
+section {
+    padding: 50px 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px;
+}
+
+.features.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.features.card h2 {
+    margin-bottom: 15px;
+}
+
+.features.card .feature-list {
+    overflow: hidden;
+    position: relative;
+    height: 150px; /* Adjust based on the number of features */
+}
+
+.features.card .feature-list ul {
+    position: relative;
+    animation: slide 15s linear infinite;
+}
+
+.features.card .feature-list ul li {
+    margin: 5px 0;
+}
+
+@keyframes slide {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: -120%; /* Adjust based on the number of features */
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 20px 20px;
+    margin-top: 20px;
+    color: #fff;
+}
+
+footer p {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.datetime {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+    background: #d35400;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    .cta-button {
+        font-size: 14px;
+    }
+
+    .features.card {
+        width: 100%;
+    }
+
+    footer ul {
+        font-size: 14px;
+    }
+}
+/* social link */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+}
+.footer a img {
+    width: 50px; /* Adjust the size of the LinkedIn logo */
+    height: 50px;
+    margin: 0 10px; /* Add some spacing around the logo */
+    vertical-align: middle;
+    border-radius: 10px;
+}
